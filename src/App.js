@@ -1,4 +1,8 @@
+import { useState } from "react";
 import FriendsList from "./components/FriendsList";
+import FormAddFriend from "./components/FormAddFriend";
+import Button from "./components/Button";
+import FormSplitBill from "./components/FormSplitBill";
 
 const initialFriends = [
   {
@@ -22,9 +26,15 @@ const initialFriends = [
 ];
 
 function App() {
+  const [friends, setFriends] = useState(initialFriends);
   return (
     <div className="app">
-      <FriendsList />
+      <div className="sidebar">
+        <FriendsList friends={friends} />
+        <FormAddFriend />
+        <Button>Add friend</Button>
+      </div>
+      <FormSplitBill />
     </div>
   );
 }
